@@ -29,6 +29,7 @@ const gameSchema = new Schema(
         "Simulation",
         "Puzzle",
       ],
+      required: true,
     },
     review: [
       {

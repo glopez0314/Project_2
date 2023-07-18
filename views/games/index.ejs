@@ -1,24 +1,8 @@
-<%- include('../partials/header') %>
-
-<table>
-  <thread>
-    <tr>
-      <th>Title</th>
-      <th>Release Year</th>
-      <th>Genre</th>
-      <th></th>
-    </tr>
-  </thread>
-  <tbody>
-    <% games.forEach(g => { %>
-    <tr>
-      <td><%= g.title %></td>
-      <td><%= g.releaseYear %></td>
-      <td><%= g.genre %></td>
-      <td><a href="/games/<%= g._id %>">DETAILS</a></td>
-    </tr>
-    <% }) %>
-  </tbody>
-</table>
-
-<%- include('../partials/footer') %>
+<%- include('../partials/header') %> <% games.forEach(g => { %>
+<section id="gameCards" class="card">
+  <div><%= g.title %></div>
+  <div>Genre: <%= g.genre %></div>
+  <div>Release Date: <%= g.releaseDate.toDateString() %></div>
+  <div><a href="/games/<%= g._id %>">DETAILS</a></div>
+</section>
+<% }) %> <%- include('../partials/footer') %>
