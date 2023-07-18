@@ -1,23 +1,45 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const gameSchema = new Schema({
-  title: {
-    type: String,
-    required: true,
+const gameSchema = new Schema(
+  {
+    title: {
+      type: String,
+      required: true,
+    },
+    description: {
+      type: String,
+      required: true,
+    },
+    releaseDate: {
+      type: Date,
+      required: true,
+    },
+    genre: {
+      type: String,
+      enum: [
+        "Action",
+        "Adventure",
+        "RPG",
+        "Shooter",
+        "Horror",
+        "Sports",
+        "Fighting",
+        "Racing",
+        "Simulation",
+        "Puzzle",
+      ],
+    },
+    review: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "Review",
+      },
+    ],
   },
-  description: {
-    type: String,
-    required: true,
-  },
-  releaseYear: {
-    type: Date,
-    required: true,
-  },
-  genre: {
-    type: String,
-    enmu: 
-  },
-}, {
-    timestamps: true
-});
+  {
+    timestamps: true,
+  }
+);
+
+module.exports = mongoose.model("Game", gameSchema);
