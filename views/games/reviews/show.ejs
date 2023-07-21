@@ -1,0 +1,15 @@
+<%- include('../../partials/header') %>
+
+<section id="reviewShowPage">
+  <div>Rating:</div>
+  <div><%= review.rating %></div>
+  <div>summary:</div>
+  <div><%= review.summary %></div>
+  <div>Full Review:</div>
+  <div><%= review.essay %></div>
+</section>
+<% if (user?._id.equals(review.user)) { %>
+<form action="/reviews/<%= review._id %>?_method=DELETE" method="POST">
+  <button id="deleteBtn" class="btn btn-danger" type="submit">X</button>
+</form>
+<% } %> <%- include('../../partials/footer') %>

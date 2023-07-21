@@ -31,7 +31,7 @@ const gameSchema = new Schema(
       ],
       required: true,
     },
-    review: [
+    reviews: [
       {
         type: Schema.Types.ObjectId,
         ref: "Review",

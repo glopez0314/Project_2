@@ -26,17 +26,62 @@
 
 <div id="myTabContent" class="tab-content">
   <div class="tab-pane fade active show" id="details" role="tabpanel">
-    <section id="GameShowPage">
+    <section id="gameShowPage">
       <div>Description:</div>
       <div><%= game.description %></div>
       <div>Genre:</div>
       <div><%= game.genre %></div>
       <div>Release Date:</div>
       <div><%= game.releaseDate.toDateString() %></div>
+      <% if (user) { %>
+        <form action="/games/<%= game._id %>?_method=DELETE" method="POST">
+          <button id="deleteBtn" class="btn btn-danger" type="submit">X</button>
+        </form>
+        <a href="/games/<%= game._id %>/edit" class="btn btn-primary">Edit</a>
+      </div>
+      <% } %>
     </section>
-  </div>
   <div class="tab-pane fade" id="reviews" role="tabpanel">
-    <h1>No Reviews Yet</h1>
+    <a class="btn btn-primary" href="/games/<%= game._id %>/reviews/new">Add Review</a>
+    <% if (game.reviews.length) { %>
+    <table id="gameReviews">
+      <thead>
+        <tr>
+          <th>User</th>
+          <th>Rating</th>
+          <th>Summary</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% let total = 0 %> <% game.reviews.forEach(function(r) { %> <% total +=
+        r.rating %>
+        <tr id="gameReviews">
+          <td class="review-user">
+            <img
+              alt="avatar"
+              src="<%= r.userAvatar %>"
+              referrerpolicy="no-referrer"
+            /><%= r.userName %>
+          </td>
+          <td><%= r.rating %></td>
+          <td><%= r.summary %></td>
+          <td>
+            <a href="/reviews/<%= r._id %>" class="btn btn-primary">Details</a>
+          </td>
+        </tr>
+        <% }); %>
+        <tr>
+          <td colspan="3"></td>
+          <td>
+            <strong><%= (total / game.reviews.length).toFixed(1) %></strong>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <% } else { %>
+    <h5>No Reviews Yet</h5>
+    <% } %>
   </div>
 </div>
 

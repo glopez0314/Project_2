@@ -1,0 +1,44 @@
+<%- include('../../partials/header') %>
+
+<form id="newReviewForm" method="POST" action="/games/<%= game._id %>/reviews">
+  <fieldset>
+    <br />
+    <div class="form-group">
+      <label class="form-label mt-4">Rating</label>
+      <select class="form-select" id="newReviewRating" name="rating">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label class="form-label mt-4">Summary</label>
+      <textarea
+        class="form-control"
+        name="summary"
+        id="newReviewSummary"
+        rows="3"
+      ></textarea>
+    </div>
+    <div class="form-group">
+      <label class="form-label mt-4">Full Review</label>
+      <textarea
+        class="form-control"
+        name="essay"
+        id="newReviewEssay"
+        rows="8"
+      ></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </fieldset>
+</form>
+
+<%- include('../../partials/footer') %>

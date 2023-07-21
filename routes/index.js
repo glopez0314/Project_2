@@ -4,7 +4,7 @@ const passport = require("passport");
 
 // This app has no "home" page, but your projects should 😀
 router.get("/", function (req, res, next) {
-  res.render("index", { title: "Home" });
+  res.render("index", { title: "Only True Gamers" });
 });
 
 // Google OAuth login route

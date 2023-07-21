@@ -1,6 +1,69 @@
+#navBar {
+    background-color: rgb(136, 5, 212);
+     
+}
 
+#title {
+    text-align: center;;
+}
+
+body {
+    background-color: rgb(47, 0, 72);
+    color: rgb(110, 169, 250);
+}
+
+#homeAbout {
+    margin-top: 10vmin;
+}
+
+#gameShowPage {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: 1fr .3fr .3fr .3fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 2vmin;
+    border: solid white;
+    padding: 1vmin;
+}
+
+#gameReviews {
+    border: solid white;
+}
+
+th {
+    text-align: center;
+    border: solid white;
+}
+
+td {
+    border: solid white;
+}
+
+#deleteBtn {
+    width: 10vmin;
+    margin-left: 2vmin;
+}
 
 #newGameForm {
-    margin: 10vmin;
+    margin: 5vmin;
+    margin-top: 3vmin;
     max-width: 100vmin;
 }
+
+#newReviewForm {
+    margin: 5vmin;
+    margin-top: 3vmin;
+    max-width: 100vmin;
+}
+
+.review-user {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .review-user img {
+    border-radius: 50%;
+    height: 40px;
+  }
+  
