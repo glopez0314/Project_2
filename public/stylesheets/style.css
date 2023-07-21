@@ -16,6 +16,12 @@ body {
     margin-top: 10vmin;
 }
 
+#gameCards {
+    padding: 0;
+    margin: 1vmin;
+    
+}
+
 #gameShowPage {
     display: grid;
     grid-template-columns: 1fr 3fr;
