@@ -34,15 +34,18 @@
       <div>Release Date:</div>
       <div><%= game.releaseDate.toDateString() %></div>
       <% if (user) { %>
+       
         <form action="/games/<%= game._id %>?_method=DELETE" method="POST">
           <button id="deleteBtn" class="btn btn-danger" type="submit">X</button>
         </form>
         <a href="/games/<%= game._id %>/edit" class="btn btn-primary">Edit</a>
+        <% } %>
       </div>
-      <% } %>
     </section>
   <div class="tab-pane fade" id="reviews" role="tabpanel">
-    <a class="btn btn-primary" href="/games/<%= game._id %>/reviews/new">Add Review</a>
+    <% if (user) { %>
+      <a class="btn btn-primary" href="/games/<%= game._id %>/reviews/new">Add Review</a>
+      <% } %>
     <% if (game.reviews.length) { %>
     <table id="gameReviews">
       <thead>
